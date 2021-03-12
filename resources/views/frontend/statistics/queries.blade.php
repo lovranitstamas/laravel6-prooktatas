@@ -32,6 +32,15 @@
         <br>Kommentek száma: {{$mostCommentedNote->sum}}
     @endisset
 
+    @isset($searchedNote)
+        <p>A legtöbb kommentelt tag</p>
+        <ul>
+            @foreach($searchedNote->tags as $tag)
+                <li>{{$tag->name}}</li>
+            @endforeach
+        </ul>
+    @endisset
+
 
 @endsection {{-- @stop--}}
 

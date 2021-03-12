@@ -24,7 +24,10 @@ Route::namespace('Admin')->group(function () {
 
     Route::middleware('admin_auth')->group(function () {
         Route::get('/admin', 'DashboardController@index')->name('admin.dashboard');                 //5.óra
+        Route::get('/admin/dropdown1', 'DropdownController@dropdown1')->name('admin.dropdown1');
+        Route::get('/admin/dropdown2', 'DropdownController@dropdown2')->name('admin.dropdown2');
 
+        Route::get('/admin/customers', 'CustomersController@index')->name('admin.customers.index');
     });
 });
 

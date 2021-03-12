@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "admin-lte": "^3.0.5",
         "bootstrap": "^4.6.0"
     }
 }
