@@ -18,12 +18,12 @@ class StatisticsController extends Controller
 
     public function lastThreeCustomer()
     {
-        $lastThreeCustomer = Comment::orderBy('created_at', 'desc')->take(3)->get();
-        /*$lastThreeCustomer = Comment::orderBy('created_at', 'desc')->pluck('customer_id');
+        //$lastThreeCustomer = Comment::orderBy('created_at', 'desc')->take(3)->get();
+        $lastThreeCustomer = Comment::orderBy('created_at', 'desc')->pluck('customer_id')->toArray();
         $lastThreeCustomer = array_unique($lastThreeCustomer);
         $firstThree = array_slice($lastThreeCustomer, 0, 3);
 
-        $lastThreeCustomer = Customer::whereIn('id', $firstThree)->get();*/
+        $lastThreeCustomer = Customer::whereIn('id', $firstThree)->get();
 
         return view('frontend.statistics.queries', compact('lastThreeCustomer'));
 
@@ -37,16 +37,17 @@ class StatisticsController extends Controller
             ->orderBy('sum', 'desc')
             ->first();
 
-        /*
+/*
         //////////////////
         $customer = Customer::has('comments')->get();
         $mostCommentingCustomer = $customer->sortBy(function ($customer) {
             $customer->comments->count();
         })->first();
 
+
         //////////
-        $mostCommentingCustomer = Customer::withCount('comments')->orderBy('sum', 'desc')->first();
-        */
+        $mostCommentingCustomer = Customer::withCount('comments')->orderBy('comments_count', 'desc')->first();
+       */
 
         return view('frontend.statistics.queries', compact('mostCommentingCustomer'));
 
@@ -71,10 +72,12 @@ class StatisticsController extends Controller
             $customerArray[$customerWithNote->id] = $customerCommentCount;
         }
 
-        $orderedArray = asort($customerArray);
-        $id = array_pop($orderedArray);
+        asort($customerArray);
+        $keys = array_keys($customerArray);
+        $id = array_pop($keys);
 
-        $customerReceivedMostComments = Customer::find($id);*/
+        $customerReceivedMostComments = Customer::find($id);
+        dd($customerReceivedMostComments);*/
 
         return view('frontend.statistics.queries', compact('customerReceivedMostComments'));
 
@@ -88,7 +91,8 @@ class StatisticsController extends Controller
             ->first();
 
         ///////////////
-        //$mostCommentedNote = Note::withCount('comments')->orderBy('sum', 'desc')->first();
+        //$mostCommentedNote = Note::withCount('comments')->orderBy('comments_count', 'desc')->first();
+
 
         return view('frontend.statistics.queries', compact('mostCommentedNote'));
     }
@@ -106,12 +110,11 @@ class StatisticsController extends Controller
             $tagArray[$tagWithNote->id] = $tagCommentCount;
         }
 
-        $orderedArray = asort($tagArray);
-        $id = array_pop($orderedArray);
+        asort($tagArray);
+        $keys = array_keys($tagArray);
+        $id = array_pop($keys);
 
         $searchedNote = Tag::find($id);
-
-
 
         return view('frontend.statistics.queries', compact('searchedNote'));
     }

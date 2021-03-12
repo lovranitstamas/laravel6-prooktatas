@@ -7,8 +7,9 @@
     @isset($lastThreeCustomer)
         <p>Legutóbb kommentelő 3 ügyfél</p>
         <ul>
-            @foreach($lastThreeCustomer as $comment)
-                <li>{{$comment->customer->name}} - {{$comment->content}} - {{$comment->created_at}}</li>
+            @foreach($lastThreeCustomer as $customer)
+                {{--<li>{{$comment->customer->name}} - {{$comment->content}} - {{$comment->created_at}}</li>--}}
+                <li>{{$customer->name}}</li>
             @endforeach
         </ul>
     @endisset
@@ -35,9 +36,7 @@
     @isset($searchedNote)
         <p>A legtöbb kommentelt tag</p>
         <ul>
-            @foreach($searchedNote->tags as $tag)
-                <li>{{$tag->name}}</li>
-            @endforeach
+            <li>{{$searchedNote->name}}</li>
         </ul>
     @endisset
 
