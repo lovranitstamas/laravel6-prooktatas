@@ -46,7 +46,7 @@ class CustomersController extends Controller
         $customer->setAttributes($request->all());
         $customer->save();
 
-        session()->flash('message', 'Ügyfél elmentve');
+        session()->flash('success', 'Ügyfél elmentve');
 
         return redirect()->back();
     }
@@ -74,7 +74,7 @@ class CustomersController extends Controller
 
         $customer->save();
 
-        session()->flash('message', 'Módosítás végrehajtva');
+        session()->flash('success', 'Módosítás végrehajtva');
 
         //return redirect()->back();
         return redirect('/admin/customer/'.$id.'/modify');
