@@ -14,14 +14,11 @@
 
         @csrf
 
-        <div class="form-group">
+        <div class="form-group {{$errors->first('name') ? 'has-error': ''}}">
             <label for="name">Név:</label>
-            <input type="text" name="name" id="name" value="{{old('name') ?: $customer->name}}"
-                   class="{{$errors->first('name') ? 'has-error': ''}} form-control">
+            <input type="text" name="name" id="name" value="{{old('name') ?: $customer->name}}" class="form-control">
             @if($errors->first('name'))
-                <p style="color:#ff0000">
-                    {{$errors->first('name')}}
-                </p>
+                <span class="help-block">{{$errors->first('name')}}</span>
             @endif
         </div>
 
