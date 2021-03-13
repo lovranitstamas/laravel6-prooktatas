@@ -31,7 +31,9 @@
                     <td>{{$customer->id}}</td>
                     <td>{{$customer->name}}</td>
                     <td>{{$customer->email}}</td>
-                    <td><a href="{{route('admin.customers.edit', ['id' => $customer->id])}}">Módosítás</a></td>
+                    <td><a class="btn btn-default" href="{{route('admin.customers.edit', ['id' => $customer->id])
+                    }}">Módosítás <i
+                                class="fa fa-edit"></i></a></td>
                 </tr>
             @endforeach
             </tbody>
