@@ -15,25 +15,26 @@
     return view('welcome');
 });*/
 
-Route::namespace('Admin')->group(function () {
+Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
     Route::namespace('Auth')->group(function () {
-        Route::get('/admin/login', 'LoginController@showLoginForm')->name('admin.login.create');    //5.óra
-        Route::post('/admin/login', 'LoginController@login')->name('admin.login.store');            //5.óra
-        Route::post('/admin/logout', 'LoginController@logout')->name('admin.logout');               //5.óra
+        Route::get('/login', 'LoginController@showLoginForm')->name('login.create');    //5.óra
+        Route::post('/login', 'LoginController@login')->name('login.store');            //5.óra
+        Route::post('/logout', 'LoginController@logout')->name('logout');               //5.óra
     });
 
     Route::middleware('admin_auth')->group(function () {
-        Route::get('/admin', 'DashboardController@index')->name('admin.dashboard');                 //5.óra
-        Route::get('/admin/dropdown1', 'DropdownController@dropdown1')->name('admin.dropdown1');
-        Route::get('/admin/dropdown2', 'DropdownController@dropdown2')->name('admin.dropdown2');
+        //name prefix
+        Route::get('/', 'DashboardController@index')->name('dashboard');                 //5.óra
+        Route::get('/dropdown1', 'DropdownController@dropdown1')->name('dropdown1');
+        Route::get('/dropdown2', 'DropdownController@dropdown2')->name('dropdown2');
 
-        Route::get('/admin/customers', 'CustomersController@index')->name('admin.customers.index');
+        Route::get('/customers', 'CustomersController@index')->name('customers.index');
 
-        Route::get('/admin/customer/registration', 'CustomersController@create')->name('admin.customers.create');
-        Route::post('/admin/customer/registration', 'CustomersController@store')->name('admin.customers.store');
+        Route::get('/customer/registration', 'CustomersController@create')->name('customers.create');
+        Route::post('/customer/registration', 'CustomersController@store')->name('customers.store');
 
-        Route::get('/admin/customer/{id}/modify', 'CustomersController@edit')->name('admin.customers.edit');
-        Route::put('/admin/customer/{id}/modify', 'CustomersController@update')->name('admin.customers.update');
+        Route::get('/customer/{id}/modify', 'CustomersController@edit')->name('customers.edit');
+        Route::put('/customer/{id}/modify', 'CustomersController@update')->name('customers.update');
     });
 });
 
@@ -60,7 +61,6 @@ Route::middleware('customer_auth')->group(function () {
 
 
     Route::delete('/logout', 'CustomersAuthController@destroy')->name('login.destroy'); //4.óra
-
 
 
     Route::get('/post/registration', 'PostController@create')->name('posts.create');       //6.óra
@@ -109,3 +109,4 @@ Route::post('/pageRegister', 'TestController@register')->name('test.register'); 
 Route::get('/{page}', 'TestController@show')->name('test.show'); //2. óra
 
 
+//Route::resources('bla/bla', 'blaController', ['except'=> 'show']);
