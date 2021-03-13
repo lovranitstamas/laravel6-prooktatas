@@ -42,11 +42,16 @@ class CustomersController extends Controller
         ]);
 
         $customer = new Customer();
-
         $customer->setAttributes($request->all());
-        $customer->save();
 
-        session()->flash('success', 'Ügyfél elmentve');
+        try {
+
+            $customer->save();
+            session()->flash('success', 'Ügyfél elmentve');
+
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+        }
 
         return redirect()->back();
     }
@@ -68,16 +73,20 @@ class CustomersController extends Controller
             'password' => 'confirmed'
         ]);
 
-        $customer = Customer::findOrFail($id);
+        try {
 
-        $customer->setAttributes($request->all());
+            $customer = Customer::findOrFail($id);
+            $customer->setAttributes($request->all());
 
-        $customer->save();
+            $customer->save();
+            session()->flash('success', 'Ügyfél módosítva');
 
-        session()->flash('success', 'Módosítás végrehajtva');
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+        }
 
         //return redirect()->back();
-        return redirect('/admin/customer/'.$id.'/modify');
+        return redirect('/admin/customer/' . $id . '/modify');
     }
 
 
