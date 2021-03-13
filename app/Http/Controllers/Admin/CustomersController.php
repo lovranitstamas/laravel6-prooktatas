@@ -25,5 +25,60 @@ class CustomersController extends Controller
 
     }
 
+    public function create()
+    {
+        $customer = new Customer();
+
+        return view('admin.customers.create')->with('customer', $customer);
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:customers,email',
+            'description' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+
+        $customer = new Customer();
+
+        $customer->setAttributes($request->all());
+        $customer->save();
+
+        session()->flash('message', 'Ügyfél elmentve');
+
+        return redirect()->back();
+    }
+
+    public function edit($customerId)
+    {
+        $customer = Customer::findOrFail($customerId);
+
+        return view('admin.customers.edit')->with('customer', $customer);
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:customers,email,' . $request->id,
+            'description' => 'required',
+            'password' => 'confirmed'
+        ]);
+
+        $customer = Customer::findOrFail($id);
+
+        $customer->setAttributes($request->all());
+
+        $customer->save();
+
+        session()->flash('message', 'Módosítás végrehajtva');
+
+        //return redirect()->back();
+        return redirect('/admin/customer/'.$id.'/modify');
+    }
+
 
 }

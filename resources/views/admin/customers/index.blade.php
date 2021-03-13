@@ -16,11 +16,13 @@
                 <td>{!! orderTableHeader('id', '#') !!}</td>
                 <td>{!! orderTableHeader('name', 'Név') !!}</td>
                 <td>{!! orderTableHeader('email', 'E-mail') !!}</td>
+                <td>Módosítás</td>
             </tr>
             <tr>
-                <td><input type="text" name="search[name]" value="{{request()->input('search.name')}}"></td>
-                <td colspan="9"></td>
-                <td><input type="submit" value="keresés"></td>
+                <td><input type="text" class="form-control" name="search[name]" value="{{request()->input('search.name')
+                }}"></td>
+                <td colspan="2"></td>
+                <td><input type="submit" class="btn btn-primary" value="keresés"></td>
             </tr>
             </thead>
             <tbody>
@@ -29,6 +31,7 @@
                     <td>{{$customer->id}}</td>
                     <td>{{$customer->name}}</td>
                     <td>{{$customer->email}}</td>
+                    <td><a href="{{route('admin.customers.edit', ['id' => $customer->id])}}">Módosítás</a></td>
                 </tr>
             @endforeach
             </tbody>

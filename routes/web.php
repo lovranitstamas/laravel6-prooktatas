@@ -28,6 +28,12 @@ Route::namespace('Admin')->group(function () {
         Route::get('/admin/dropdown2', 'DropdownController@dropdown2')->name('admin.dropdown2');
 
         Route::get('/admin/customers', 'CustomersController@index')->name('admin.customers.index');
+
+        Route::get('/admin/customer/registration', 'CustomersController@create')->name('admin.customers.create');
+        Route::post('/admin/customer/registration', 'CustomersController@store')->name('admin.customers.store');
+
+        Route::get('/admin/customer/{id}/modify', 'CustomersController@edit')->name('admin.customers.edit');
+        Route::put('/admin/customer/{id}/modify', 'CustomersController@update')->name('admin.customers.update');
     });
 });
 

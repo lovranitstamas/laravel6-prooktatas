@@ -26,7 +26,8 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview {{in_array(\Route::currentRouteName() ,  ['admin.dropdown1','admin.dropdown2']) ? 'menu-open': '' }}">
-                    <a href="#" class="nav-link {{in_array(\Route::currentRouteName() , ['admin.dropdown1','admin.dropdown2']) ? 'active': ''}}">
+                    <a href="#"
+                       class="nav-link {{in_array(\Route::currentRouteName() , ['admin.dropdown1','admin.dropdown2']) ? 'active': ''}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Legördülő menü teszt
@@ -62,11 +63,18 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.customers.index')}}" class="nav-link">
-                        <p>Ügyfél lista</p>
-                    </a>
-                </li>
+                @if(auth()->guard()->user())
+                    <li class="nav-item">
+                        <a href="{{route('admin.customers.create')}}" class="nav-link">
+                            <p>Ügyfél létrehozása</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.customers.index')}}" class="nav-link">
+                            <p>Ügyfél lista</p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
