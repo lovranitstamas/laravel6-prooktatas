@@ -30,7 +30,7 @@ class UpdateNotesTable extends Migration
     public function down()
     {
         Schema::table('notes', function (Blueprint $table) {
-            //
+            $table->dropForeign(['user_id']);
         });
     }
 }
