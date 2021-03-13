@@ -1,16 +1,15 @@
 @extends('admin.layout.admin-layout')
 
 @section('content')
-
-    @if(session()->has('message'))
-        <div class="alert alert-success" role="alert">
-            {{session('message')}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="row">
+        <div class="col-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Ügyfél létrehozása</h3>
+                </div>
+                <!-- /.box-header -->
+                @include('admin.customers.form')
+            </div>
         </div>
-    @endif
-
-    @include('admin.customers.form')
-
+    </div>
 @stop
