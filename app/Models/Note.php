@@ -70,9 +70,14 @@ class Note extends Model
 
 
     //7. óra
-    public function comments()
+    /*public function comments()
     {
         return $this->hasMany(Comment::class);
+    }*/
+
+    public function comments()
+    {
+    return $this->morphMany(Comment::class, 'commentable');
     }
 
     //7. óra

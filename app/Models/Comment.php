@@ -14,9 +14,13 @@ class Comment extends Model
     }
 
     //7. óra
-    public function note()
+    /*public function note()
     {
         return $this->belongsTo(Note::class);
+    }*/
+
+    public function commentable() {
+        return $this->morphTo();
     }
 
 }

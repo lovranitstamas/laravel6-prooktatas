@@ -39,6 +39,7 @@ class StatisticsController extends Controller
 
 /*
         //////////////////
+        $customer = Customer::has('writtenComments')->get();
         $customer = Customer::has('comments')->get();
         $mostCommentingCustomer = $customer->sortBy(function ($customer) {
             $customer->comments->count();
@@ -46,6 +47,7 @@ class StatisticsController extends Controller
 
 
         //////////
+        $mostCommentingCustomer = Customer::withCount('writtenComments')->orderBy('comments_count', 'desc')->first();
         $mostCommentingCustomer = Customer::withCount('comments')->orderBy('comments_count', 'desc')->first();
        */
 

@@ -70,9 +70,14 @@ class Customer extends Authenticatable
 
 
     //7. óra
-    public function comments()
+    public function writtenComments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
 }
