@@ -20,6 +20,7 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
         Route::get('/login', 'LoginController@showLoginForm')->name('login.create');    //5.óra
         Route::post('/login', 'LoginController@login')->name('login.store');            //5.óra
         Route::post('/logout', 'LoginController@logout')->name('logout');               //5.óra
+        Route::get('/logout', 'LoginController@logout')->name('logout');               //5.óra
     });
 
     Route::middleware('admin_auth')->group(function () {
