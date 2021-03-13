@@ -17,7 +17,10 @@
 
     <hr>
     @if(authCustomer())
-        <form action="{{route('posts.comment.store', $note->id)}}" method="POST">
+        <form action="{{route('posts.comment.store',
+                        ["type" => get_class($note) ,
+                          "id"  => $note->id]
+                        )}}" method="POST">
             @csrf
             <div class="form-group">
                 Komment

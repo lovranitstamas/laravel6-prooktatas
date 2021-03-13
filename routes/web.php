@@ -75,8 +75,8 @@ Route::middleware('customer_auth')->group(function () {
         ->name('ownPosts.destroyDestroyWithJson');                                          //7.óra
 
     Route::get('/post/{postId}', 'PostController@show')->name('posts.show');     //7.óra !!!!!!!!!!!!!! ki
-    Route::post('/post/{postId}/comment/', 'CommentsController@store')->name('posts.comment.store');
-    //7. óra
+    //Route::post('/post/{postId}/comment/', 'CommentsController@store')->name('posts.comment.store'); //7. óra
+    Route::post('/post/{type}/{id}/comment/', 'CommentsController@store')->name('posts.comment.store');
 
 
     Route::get('/post/{customerId?}', 'PostController@index')->name('posts.index');        //6.óra !!!!!!!!!!!! ki
