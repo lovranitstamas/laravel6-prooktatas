@@ -53,8 +53,9 @@
                     <td>{{$customer->lastUpdated()}}</td>
                     <td><a href="{{route('customers.show', ['id' => $customer->id])}}">Megtekintés</a></td>
                     <td><a href="{{route('customers.edit', ['id' => $customer->id])}}">Módosítás</a></td>
-                    <td><a href="{{route('posts.index', $customer->id)}}">Posztok({{$customer->notes()->count()}})
-                        </a></td>
+                    <td><a href="{{route('posts.index', $customer->id)}}">#{{$customer->id}}poszt
+                        </a>{{$customer->notes()->count()}} db
+                        </td>
                     <td>
                         <form action="{{route('customers.destroy', $customer->id)}}" method="POST">
                             <input type="hidden" name="_method" value="delete">
