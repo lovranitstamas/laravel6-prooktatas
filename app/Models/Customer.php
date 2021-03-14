@@ -68,7 +68,6 @@ class Customer extends Authenticatable
     }
 
 
-
     //7. óra
     public function writtenComments()
     {
@@ -78,6 +77,11 @@ class Customer extends Authenticatable
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function attachment()
+    {
+        return $this->morphTo(Attachment::class, 'attachable');
     }
 
 }
