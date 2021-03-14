@@ -19,7 +19,7 @@
         <input type="text" name="description" value="{{$customer->description}}" disabled class="form-control">
     </div>
 
-    @include('frontend.partials._comment_section', ['object'=> $note])
+    @include('frontend.partials._comment_section', ['object'=> $customer])
 @endsection
 
 @section('footer')
