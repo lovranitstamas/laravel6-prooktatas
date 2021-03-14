@@ -4,6 +4,8 @@
 
     <h4>Megtekintés</h4>
 
+    <img src="{{$customer->attachment->publicUrl()}}" alt="picture">
+
     <div class="form-group">
         Név:
         <input type="text" name="name" value="{{$customer->name}}" disabled class="form-control">

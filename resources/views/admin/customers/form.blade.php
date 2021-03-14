@@ -1,5 +1,6 @@
 <!-- form start -->
 <form action="{{$customer->id ? route('admin.customers.update', $customer->id) : route('admin.customers.store')}}"
+      enctype="multipart/form-data"
       method="POST">
     <div class="box-body">
 
@@ -60,11 +61,13 @@
             <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
         </div>
 
-        <div class="form-group">
+        <div class="form-group {{$errors->first('attachment') ? 'has-error': ''}}">
             <label for="exampleInputFile">Profil kép</label>
-            <input type="file" name="file" id="exampleInputFile">
+            <input type="file" name="attachment" id="exampleInputFile">
 
-            <p class="help-block">random help</p>
+            @if($errors->first('attachment'))
+                <span class="help-block text-danger">{{$errors->first('attachment')}}</span>
+            @endif
         </div>
 
         {{--<div class="checkbox">

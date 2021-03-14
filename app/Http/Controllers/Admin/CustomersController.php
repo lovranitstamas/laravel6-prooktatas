@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attachment;
 use App\Models\Note;
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -70,7 +71,8 @@ class CustomersController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:customers,email,' . $request->id,
             'description' => 'required',
-            'password' => 'confirmed'
+            'password' => 'confirmed',
+            'attachment' => 'file|max: 3072|mimes:jpg,jped,png,pdf'
         ]);
 
         try {
@@ -79,6 +81,22 @@ class CustomersController extends Controller
             $customer->setAttributes($request->all());
 
             $customer->save();
+
+            if ($file = $request->file('attachment')) {
+
+                try {
+                    $attachment = new Attachment;
+                    $attachment->addFile($file);
+
+                    $attachment->attachable()->associate($customer);
+
+                    $attachment->save();
+
+                } catch (\Exception $e) {
+                    session()->flash('error', $e->getMessage());
+                }
+            }
+
             session()->flash('success', 'Ügyfél módosítva');
 
         } catch (\Exception $e) {

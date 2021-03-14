@@ -81,7 +81,7 @@ class Customer extends Authenticatable
 
     public function attachment()
     {
-        return $this->morphTo(Attachment::class, 'attachable');
+        return $this->morphOne(Attachment::class, 'attachable');
     }
 
 }
