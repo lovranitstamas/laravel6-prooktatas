@@ -15,7 +15,9 @@
         Poszt tartalma: {{$note->content}}
     </p>
 
-    <hr>
+    @include('frontend.partials._comment_section', ['object'=> $note])
+
+    {{--<hr>
     @if(authCustomer())
         <form action="{{route('posts.comment.store',
                         ["type" => get_class($note) ,
@@ -51,6 +53,6 @@
             {{$comment->content}}
         </p>
         <hr>
-    @endforeach
+    @endforeach--}}
 
 @stop()
