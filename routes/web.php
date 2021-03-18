@@ -36,6 +36,14 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
 
         Route::get('/customer/{id}/modify', 'CustomersController@edit')->name('customers.edit');
         Route::put('/customer/{id}/modify', 'CustomersController@update')->name('customers.update');
+
+
+        Route::get('/post', 'PostController@index')->name('posts.index');
+        Route::get('/post/registration', 'PostController@create')->name('posts.create');
+        Route::post('/post/registration', 'PostController@store')->name('posts.store');
+        Route::get('/post/{postId}/modify', 'PostController@edit')->name('posts.edit');
+        Route::put('/post/{postId}/modify', 'PostController@update')->name('posts.update');
+        Route::get('/post/{postId}', 'PostController@show')->name('posts.show');
     });
 });
 

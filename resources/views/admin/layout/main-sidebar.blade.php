@@ -74,6 +74,16 @@
                             <p>Ügyfél lista</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.posts.create')}}" class="nav-link">
+                            <p>Jegyzet létrehozása</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.posts.index')}}" class="nav-link">
+                            <p>Jegyzet lista</p>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </nav>

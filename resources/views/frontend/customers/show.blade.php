@@ -4,7 +4,9 @@
 
     <h4>Megtekintés</h4>
 
-    <img src="{{$customer->attachment->publicUrl()}}" alt="picture">
+    @if($customer->attachment)
+        <img src="{{$customer->attachment->publicUrl()}}" alt="picture">
+    @endif
 
     <div class="form-group">
         Név:

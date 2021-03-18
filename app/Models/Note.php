@@ -84,4 +84,9 @@ class Note extends Model
     public function removeTime($date){
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
+
+    public function attachment()
+    {
+        return $this->morphOne(Attachment::class, 'attachable');
+    }
 }
