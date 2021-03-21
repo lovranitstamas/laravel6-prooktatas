@@ -34,25 +34,28 @@ class PostController extends Controller
                 ->get();
         }
 
+        $notes = Note::orderBy('created_at', 'desc')->paginate(3);
+
         return view('admin.posts.index')->with('notes', $notes);
     }
 
     public function create()
     {
-        $customer = new Customer();
-        $customer->id = \Auth::guard()->user()->id;
+        $customers = Customer::orderBy('name')->get();
+        //$customer->id = \Auth::guard()->user()->id;
 
         $tags = Tag::orderBy('name')->get();
 
         return view('admin.posts.create')
-            ->with('customer', $customer)
+            ->with('customers', $customers)
             ->with('tags', $tags);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'content' => 'required|min:20'
+            'user_id' => 'required|exists:customers,id',
+            'content' => 'required|min:20',
         ]);
 
         $note = new Note();

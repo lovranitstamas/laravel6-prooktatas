@@ -37,6 +37,8 @@
         </tbody>
     </table>
 
+    {{$notes->links()}}
+
 
 @endsection {{-- @stop--}}
 

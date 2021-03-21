@@ -64,6 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- AdminLTE App -->
 <script src="{{asset('js/admin.js')}}"></script>
+@yield('extra-scripts')
 </body>
 </html>
 

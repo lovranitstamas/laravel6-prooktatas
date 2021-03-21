@@ -17,6 +17,9 @@ class Note extends Model
         $this->content = $data['content'];
         //$this->user_id = $data['user_id'];
         $this->public_at = isset($data['public_at']) && $data['public_at'] ? $data['public_at'] : null;
+        if (isset($data['user_id']) && $data['user_id']) {
+            $this->customer()->associate($data['user_id']);
+        }
     }
 
     //6. óra
@@ -77,11 +80,12 @@ class Note extends Model
 
     public function comments()
     {
-    return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     //7. óra
-    public function removeTime($date){
+    public function removeTime($date)
+    {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
 

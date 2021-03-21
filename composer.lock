@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c121fe204f84a59b1c0ea6a8d9ae29f",
+    "content-hash": "eebdcabcd4c4180ffb986843e5b7480e",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -407,6 +407,77 @@
                 "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.1"
             },
             "time": "2020-10-22T13:48:01+00:00"
+        },
+        {
+            "name": "japonline/laravel-ckeditor",
+            "version": "4.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Japonline/laravel-ckeditor.git",
+                "reference": "fe5ab79768a9bf76d62b0754f075bf65bb156c44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Japonline/laravel-ckeditor/zipball/fe5ab79768a9bf76d62b0754f075bf65bb156c44",
+                "reference": "fe5ab79768a9bf76d62b0754f075bf65bb156c44",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Japonline\\Ckeditor\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Japonline\\Ckeditor\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                },
+                {
+                    "name": "UniSharp Ltd. (Composer Package Maintainer)",
+                    "homepage": "http://www.unisharp.com"
+                },
+                {
+                    "name": "Japonline Inc. (Forked from UniSharp)",
+                    "homepage": "https://www.japon-line.co.jp"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor (for laravel). by Japonline",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "laravel",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "support": {
+                "forum": "http://ckeditor.com/forums",
+                "issues": "http://dev.ckeditor.com",
+                "source": "http://github.com/ckeditor/ckeditor-dev",
+                "wiki": "http://docs.ckeditor.com"
+            },
+            "time": "2020-04-02T07:51:16+00:00"
         },
         {
             "name": "laravel/framework",

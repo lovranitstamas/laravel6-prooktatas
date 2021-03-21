@@ -17,6 +17,9 @@ mix.scripts([
     'node_modules/admin-lte/plugins/popper/umd/popper.js',
     'node_modules/admin-lte/dist/js/adminlte.js'
 ], 'public/js/admin.js')
+   /* .scripts([
+        'vendor/japonline/laravel-ckeditor/ckeditor.js'
+    ], 'public/js/admin/editor.js')*/
     //.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/admin.scss', 'public/css')

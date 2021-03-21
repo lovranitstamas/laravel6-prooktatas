@@ -16,7 +16,7 @@
             <div class="form-group">
                 Tartalom:
                 <textarea cols="10" rows="15" name="content"
-                          class="form-control">{{old('content') ?: $note->content}}</textarea>
+                          class="form-control ckeditor">{{old('content') ?: $note->content}}</textarea>
                 @if($errors->first('content'))
                     <p style="color:red">
                         {{$errors->first('content')}}
@@ -64,3 +64,10 @@
         </form>
     @endif
 @stop
+
+@section('extra-scripts')
+    <script src="{{asset('vendor/japonline/laravel-ckeditor/ckeditor.js')}}"></script>
+    <script>
+        CKEDITOR.replace('.ckeditor');
+    </script>
+@endsection
