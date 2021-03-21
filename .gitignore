@@ -13,10 +13,8 @@ yarn-error.log
 
 /public/attachments
 
-/.idea/
-.idea/workspace.xml
-
-.idea
-
 .idea/
-*.iml
+
+
+
+
