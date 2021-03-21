@@ -17,3 +17,6 @@ yarn-error.log
 .idea/workspace.xml
 
 .idea
+
+.idea/
+*.iml
