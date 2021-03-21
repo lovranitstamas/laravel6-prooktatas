@@ -3,7 +3,7 @@
 
     <div class="form-group">
         Ügyfél:
-        <select name="user_id" class="form-control">
+        <select name="user_id" class="form-control tag">
             @foreach($customers as $customer)
                 <option value="{{$customer->id}}"
                     {{old('customer_id') == $customer->id ? 'selected': ''}}

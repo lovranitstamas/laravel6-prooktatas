@@ -15,7 +15,10 @@ mix.scripts([
     'node_modules/admin-lte/plugins/jquery/jquery.js',
     'node_modules/admin-lte/plugins/bootstrap/js/bootstrap.js',
     'node_modules/admin-lte/plugins/popper/umd/popper.js',
-    'node_modules/admin-lte/dist/js/adminlte.js'
+    'node_modules/admin-lte/dist/js/adminlte.js',
+    'node_modules/admin-lte/plugins/select2/js/i18n/hu.js',
+    'node_modules/admin-lte/plugins/select2/js/select2.js',
+    'resources/js/admin/admin.js'
 ], 'public/js/admin.js')
    /* .scripts([
         'vendor/japonline/laravel-ckeditor/ckeditor.js'
