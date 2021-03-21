@@ -54,3 +54,9 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function () {
+    $('.tags').select2({
+        locale: "hu"
+    })
+});
