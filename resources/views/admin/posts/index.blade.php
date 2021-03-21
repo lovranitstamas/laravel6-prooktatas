@@ -30,7 +30,10 @@
                 <td>{{$note->content}}</td>
                 <td>{{$note->created_at->format('Y-m-d H:i:s')}}</td>
                 <td>{{$note->updated_at}}</td>
-                <td><a href="{{route('admin.posts.edit', ['postId' => $note->id])}}">Módosítás</a></td>
+                <td><a href="{{route('admin.posts.edit', [
+                        'page' => request()->input('page'),
+                        'postId' => $note->id])
+                }}">Módosítás</a></td>
                 <td><a href="{{route('admin.posts.show', ['postId' => $note->id])}}">Megtekintés</a></td>
             </tr>
         @endforeach

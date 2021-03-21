@@ -7,7 +7,7 @@
     @if(session()->has('message'))
         <h3>{{session('message')}}</h3>
     @else
-        <form action="{{route('admin.posts.update', $note->id)}}"
+        <form action="{{route('admin.posts.update', ['postId' => $note->id, 'page' => request()->input('page')])}}"
               method="POST"
               enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PUT">

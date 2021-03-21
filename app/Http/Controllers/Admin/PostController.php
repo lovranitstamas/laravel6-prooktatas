@@ -120,7 +120,7 @@ class PostController extends Controller
             session()->flash('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index', ['page' => request()->input('page')]);
     }
 
     public function show($noteId)
