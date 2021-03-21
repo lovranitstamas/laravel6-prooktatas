@@ -15,6 +15,11 @@
     return view('welcome');
 });*/
 
+Route::group(['prefix' => 'laravel-filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+
 Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
     Route::namespace('Auth')->group(function () {
         Route::get('/login', 'LoginController@showLoginForm')->name('login.create');    //5.óra
