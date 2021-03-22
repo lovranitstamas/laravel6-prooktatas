@@ -93,4 +93,24 @@ class Note extends Model
     {
         return $this->morphOne(Attachment::class, 'attachable');
     }
+
+    /////////////////////
+    /*
+     * Szemetelés mert minden osztályba be kellene tenni
+    public function history()
+    {
+        return $this->morphMany(ModelHistory::class, 'historable');
+    }*/
+
+    use ModelHistoryTrait;
+
+    /*
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function ($model) {
+            $model->makeHistory();
+        });
+    }*/
 }
