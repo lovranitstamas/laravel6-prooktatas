@@ -10,6 +10,10 @@ class Customer extends Authenticatable
 {
     public $table = 'customers';
 
+    protected $casts = [
+        'social' => 'array'
+    ];
+
     //3.óra
     public function lastUpdated()
     {

@@ -19,6 +19,9 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+Route::get('/social/{provider}', 'SocialAuthController@redirectToProvider')->name('social.login');
+Route::get('/social/{provider}/callback', 'SocialAuthController@handleProviderCallback');
+
 
 Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
     Route::namespace('Auth')->group(function () {

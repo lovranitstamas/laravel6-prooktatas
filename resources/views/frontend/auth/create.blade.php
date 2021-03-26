@@ -28,4 +28,6 @@
         </div>
     </form>
 
+    <a href="{{route('social.login', ['provider'=>'facebook'])}}">Fb login</a>
+
 @stop
