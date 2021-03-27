@@ -28,8 +28,9 @@ class SocialAuthController extends Controller
     public function handleProviderCallback($provider)
     {
 
-        $socialiteUserObject = Socialite::driver($provider)->stateless()->user();
-        //$socialiteUserObject = Socialite::driver($provider)->user();
+
+        //$socialiteUserObject = Socialite::driver($provider)->stateless()->user();
+        $socialiteUserObject = Socialite::driver($provider)->user();
 
         //keresés JSON mezőben
         //HA TALÁLUNK A FACEBOOK ID ALAPJÁN CUSTOMER
