@@ -5,9 +5,13 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
 class Customer extends Authenticatable
 {
+
+    use HasApiTokens;
+
     public $table = 'customers';
 
     protected $casts = [

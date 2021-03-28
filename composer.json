@@ -13,9 +13,11 @@
         "fideloper/proxy": "^4.4",
         "japonline/laravel-ckeditor": "^4.7",
         "laravel/framework": "^6.20",
+        "laravel/passport": "9.*",
         "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
         "laravel/ui": "1.0",
+        "lcobucci/jwt": "3.4",
         "unisharp/laravel-filemanager": "^2.2"
     },
     "require-dev": {

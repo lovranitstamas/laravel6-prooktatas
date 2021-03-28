@@ -15,6 +15,14 @@
     return view('welcome');
 });*/
 
+Route::group(['middleware' => ['cors', 'json.response']], function () {
+    Route::post('/api/login', 'Api\ApiController@login')->name('api.login');
+
+    Route::middleware('auth:api')->group(function () {
+        Route::get('/api/getData', 'Api\ApiController@getData')->name('api.getData');
+    });
+});
+
 Route::group(['prefix' => 'laravel-filemanager'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
